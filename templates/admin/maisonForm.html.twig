@@ -1,0 +1,18 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}maison - formulaire{% endblock %}
+
+{% block body %}
+
+    <h1>Formulaire - maison</h1>
+
+    <div>
+        {{ form_start(maisonForm) }}
+        {{ form_end(maisonForm) }}
+    </div>
+
+    <div class="text-center pb-5">
+        <a href="{{ path('admin_maisons') }}" class="btn btn-danger">Annuler</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}maisons{% endblock %}
+
+{% block body %}
+
+    <div>
+
+        <h1 class="pb-5">Liste des maisons</h1>
+
+        <table class="table table-bordered table-dark text-center table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Surface</th>
+                    <th>Pièces</th>
+                    <th>Chambres</th>
+                    <th>Prix</th>
+                    <th>Image 1</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for maison in maisons|reverse %}
+                    <tr>
+                        <td class="align-middle">{{ loop.revindex }}</td>
+                        <td class="align-middle">{{ maison.title }}</td>
+                        <td class="align-middle">{{ maison.description|u.truncate(50, '...') }}</td>
+                        <td class="align-middle">{{ maison.surface }}</td>
+                        <td class="align-middle">{{ maison.rooms }}</td>
+                        <td class="align-middle">{{ maison.bedrooms }}</td>
+                        <td class="align-middle">{{ maison.price|number_format(0, ',', ' ') }}</td>
+                        <td class="align-middle"><img src="{{ asset('img/maison/') ~ maison.img1 }}" alt="photo principale maison {{ loop.index }}"></td>
+                        <td class="align-middle">
+                            <a href="{{ path('admin_maisons_update', {'id':maison.id}) }}"><i class="fas fa-pen-square"></i></a>
+                            <a href="{{ path('admin_maisons_delete', {'id':maison.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <div class="text-right my-5">
+            <a href="{{ path('admin_maisons_create') }}" class="btn btn-outline-dark">Ajouter une maison</a>
+        </div>
+
+    </div>
+
+{% endblock %}

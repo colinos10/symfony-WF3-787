@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="David HURTREL">
+        <meta name="description" content="Site d'annonces immobilières">
+
+        <title>SUBL'IMMO - {% block title %}{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+
+    <body>
+
+        {% block body %}{% endblock %}
+
+        <footer class="container-fluid bg-light">
+            <div class="row text-center p-5">
+                <div class="col-4">
+                    <h5>QUELQUES LIENS</h5>
+                    <div class="dropdown-divider"></div>
+                    <p><a href="{{ path('home') }}">Accueil</a></p>
+                    <p><a href="#">Maisons</a></p>
+                    <p><a href="#">Contact</a></p>
+                    <p><a href="{{ path('admin') }}">Admin</a></p>
+                </div>
+                <div class="col-4 my-auto">
+                    <img src="{{ asset('img/logo.png') }}" alt="logo SUBL'IMMO" class="w-100">
+                </div>
+                <div class="col-4">
+                    <h5>COORDONNÉES</h5>
+                    <div class="dropdown-divider"></div>
+                    <p>{{ contact_address }}</p>
+                    <p>{{ contact_zip }} {{ contact_city }}</p>
+                    <p>{{ contact_phone }}</p>
+                    <p>{{ contact_email }}</p>
+                </div>
+            </div>
+            <div class="row" id="copyright">
+                <div class="col-12 text-center">
+                    <p>{{ copyright }}</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+        {% block javascripts %}{% endblock %}
+
+    </body>
+
+</html>
